@@ -35,7 +35,8 @@ TEMPLATES = [{
 }]
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
-DATABASES = {'default': {'ENGINE':'django.db.backends.sqlite3','NAME': BASE_DIR/'db.sqlite3'}}
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}", conn_max_age=600)}
 AUTH_PASSWORD_VALIDATORS = []
 LANGUAGE_CODE = 'uz'
 TIME_ZONE = 'Asia/Tashkent'
@@ -44,8 +45,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
 STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [o.strip() for o in os.getenv('CORS_ALLOWED_ORIGINS','').split(',') if o.strip()]
+CSRF_TRUSTED_ORIGINS = [o.strip() for o in os.getenv('CSRF_TRUSTED_ORIGINS','https://vesna-org.onrender.com').split(',') if o.strip()]
+RENDER_EXTERNAL_HOSTNAME = os.getenv('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':['rest_framework.permissions.AllowAny'],
     'DEFAULT_THROTTLE_CLASSES':['rest_framework.throttling.AnonRateThrottle'],
