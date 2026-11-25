@@ -1,0 +1,72 @@
+{% load static %}
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>VESNA KIDS ? O'yinli alifbo va matematika</title>
+    <meta name="description" content="Bolalar uchun o'yinli alifbo, 41 ta interaktiv o'yin, matematika mashqlari va chiroyli 3D tajriba. VESNA KIDS bilan o'rganish qiziqarli!" />
+    <meta property="og:title" content="VESNA KIDS ? O'yinli alifbo va matematika" />
+    <meta property="og:description" content="Bolalar uchun o'yinli alifbo, 41 ta interaktiv o'yin, matematika mashqlari va chiroyli 3D tajriba. VESNA KIDS bilan o'rganish qiziqarli." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vesnauz.onrender.com/" />
+    <meta property="og:site_name" content="VESNA KIDS" />
+    <meta property="og:image" content="https://vesnauz.onrender.com/assets/og-image.png?v=vesnauz4" />
+    <meta property="og:image:secure_url" content="https://vesnauz.onrender.com/assets/og-image.png?v=vesnauz4" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VESNA KIDS ? bolalar uchun o'yinli alifbo va matematika platformasi" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VESNA KIDS ? O'yinli alifbo va matematika" />
+    <meta name="twitter:description" content="Bolalar uchun o'yinli alifbo, 41 ta interaktiv o'yin, matematika mashqlari va chiroyli 3D tajriba." />
+    <meta name="twitter:image" content="https://vesnauz.onrender.com/assets/og-image.png?v=vesnauz4" />
+    <meta name="twitter:image:alt" content="VESNA KIDS ? O'yinli alifbo va matematika" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/favicon-32.png' %}" />
+    <link rel="alternate icon" type="image/png" sizes="48x48" href="{% static 'assets/favicon-48.png' %}" />
+    <link rel="alternate icon" type="image/png" sizes="16x16" href="{% static 'assets/favicon-16.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/apple-touch-icon.png' %}" />
+    <link rel="image_src" href="https://vesnauz.onrender.com{% static 'assets/og-image.png' %}?v=vesnauz4" />
+    <link rel="manifest" href="{% static 'manifest.webmanifest' %}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/pwa-192.png' %}" />
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'assets/pwa-512.png' %}" />
+    <meta name="theme-color" content="#120b2e" />
+    <meta name="application-name" content="VESNA KIDS" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="VESNA KIDS" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300..900;1,400..700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- Sculpted 3D Liquid Crystal Background Canvas -->
+    <div class="site-bg" id="site-bg" aria-hidden="true"></div>
+    <canvas id="living-bg-canvas" aria-hidden="true"></canvas>
+
+    {% include 'pages/sphere.html' %}
+
+    {% include 'pages/games.html' %}
+
+    {% include 'pages/alphabet.html' %}
+
+    {% include 'pages/math.html' %}
+
+    {% include 'pages/guide.html' %}
+
+    <!-- Floating Cursors -->
+    <div class="gal-cursor-label" id="gal-cursor-label">Ma'lumot</div>
+    <div class="proj-view-bubble" id="proj-view-bubble">Öynaş</div>
+
+    {% include 'includes/game_modal.html' %}
+
+    {% include 'includes/dock_menu.html' %}
+
+    <div id="root"></div>
+    <noscript><p style="color:#fff;padding:24px;font-family:sans-serif">JavaScript kerak / Нужен JavaScript / JavaScript required.</p></noscript>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
