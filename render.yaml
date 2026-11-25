@@ -3,7 +3,7 @@ services:
     name: vesna-org
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements/prod.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    buildCommand: pip install -r requirements/prod.txt && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py ensure_admin
     startCommand: gunicorn config.wsgi:application
     envVars:
       - key: PYTHON_VERSION
@@ -18,3 +18,9 @@ services:
         value: vesna-org.onrender.com
       - key: CSRF_TRUSTED_ORIGINS
         value: https://vesna-org.onrender.com
+      - key: DJANGO_ADMIN_USER
+        value: admin
+      - key: DJANGO_ADMIN_PASSWORD
+        generateValue: true
+      - key: DJANGO_ADMIN_EMAIL
+        value: admin@vesna.uz

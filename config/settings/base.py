@@ -39,6 +39,7 @@ import dj_database_url
 DATABASES = {'default': dj_database_url.config(default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}", conn_max_age=600)}
 AUTH_PASSWORD_VALIDATORS = []
 LANGUAGE_CODE = 'uz'
+LANGUAGE_COOKIE_NAME = 'vesna_lang'
 TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 USE_TZ = True
